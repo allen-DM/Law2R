@@ -12,11 +12,10 @@
 #   Install Package:           'Ctrl + Shift + B'
 #   Check Package:             'Ctrl + Shift + E'
 #   Test Package:              'Ctrl + Shift + T'
-
 checkLibrary <- function() {
   libraryList=c("DBI","RMariaDB","jsonlite","httr","config","quantmod","dplyr","stringr","jiebaR")
-  for(i in 1:length(libraryList[i])){
-    if(require(libraryList[i])==FALSE){
+  for(i in 1:length(libraryList)){ #i=1
+    if(require(libraryList[[i]],character.only = TRUE)==FALSE){
       install.packages(libraryList[i],dependencies=T)
     }
   }

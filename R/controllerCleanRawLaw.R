@@ -1,13 +1,11 @@
 #### 原始資料整理
+#' @export
 controllerCleanRawLaw <- function(tmpText){
-
   findClass=function (tmp){
-    gsub_nr <-
-      tmp$jfull %>%  gsub("[\n]", "", .) %>%  gsub("[\r]", "", .) %>%  gsub(" ", "", .) %>% strsplit(.,"　")
+    gsub_nr <-tmp$jfull %>%  gsub("[\n]", "", .) %>%  gsub("[\r]", "", .) %>%  gsub(" ", "", .) %>% strsplit(.,"　")
     gsub_nr <- gsub_nr[[1]][[1]]
     return(gsub_nr)
   }
-
   tryCatch({
     if(findClass(tmpText)=="公務員懲戒委員會議決書"){
       result=cleanLawRawdata$disciplinaryCommittee(tmpText)
@@ -20,7 +18,7 @@ controllerCleanRawLaw <- function(tmpText){
     }else if(findClass(tmpText)=="最高法院民事裁定" || findClass(tmpText)=="最高法院民事判決"){
       result=cleanLawRawdata$supremeCourtCivil(tmpText)
       return(paste0("最高法院民事裁定 add new data: ",result))
-    }else if(findClass(tmpText)=="最高法院民事判決"){
+    }else if(findClass(tmpText)=="最高法院刑事判決"){
       result=cleanLawRawdata$supremeCourtCivil(tmpText)
       return(paste0("最高法院刑事判決 add new data: ",result))
 
