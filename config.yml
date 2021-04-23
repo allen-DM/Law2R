@@ -4,13 +4,3 @@ default:
   user: "root"
   password: "toyo123"
   dbname: "legal"
-
-
-production:
-  trials: 30
-  dataset: "data.csv"
-
-sql:
-  host: "127.0.0.1"
-  user: "root"
-  password: "toyo123"
