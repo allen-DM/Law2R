@@ -18,7 +18,7 @@ controllerCleanRawLaw <- function(tmpText){
     }else if(findClass(tmpText)=="最高法院民事裁定" || findClass(tmpText)=="最高法院民事判決"){
       result=cleanLawRawdata$supremeCourtCivil(tmpText)
       return(paste0("最高法院民事裁定 add new data: ",result))
-    }else if(findClass(tmpText)=="最高法院刑事判決"){
+    }else if(findClass(tmpText)=="最高法院刑事判決" || findClass(tmpText)=="最高法院刑事裁定" || findClass(tmpText)=="最高法院刑事附帶民事訴訟判決"){
       result=cleanLawRawdata$supremeCourtCivil(tmpText)
       return(paste0("最高法院刑事判決 add new data: ",result))
 
